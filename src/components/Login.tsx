@@ -6,6 +6,7 @@ import {Authcontext} from "@/Hooks/AuthContext"
 import { toast } from "react-hot-toast";
 
 
+
 function Login() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [username, setusername] = useState("");
@@ -57,7 +58,7 @@ function Login() {
 
   return (
     <div className="flex bg-[#5f596f] justify-center items-center min-h-screen shadow-2xl">
-      <div className="bg-[#2c2638] grid grid-cols-2 gap-4 w-[850px] h-[500px] rounded-[7px] shadow-4xl p-3">
+      <div className="bg-[#2c2638] sm:grid:grid-cols-2  grid grid-cols-2 gap-4 w-[850px] h-[500px] rounded-[7px] shadow-4xl p-3">
         {/* Carousel */}
         <div
           className="overflow-hidden max-w-full relative rounded-[7px] h-full"

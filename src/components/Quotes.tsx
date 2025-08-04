@@ -1,29 +1,40 @@
-import { Button } from "@/components/ui/button"
-import { Authcontext } from "@/Hooks/AuthContext"
-import { useContext } from "react"
+import { Button } from "@/components/ui/button";
+import { Authcontext } from "@/Hooks/AuthContext";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast"; // Toast import
+// import Theme from "./Theme";
+import { useEffect } from "react";
+import Header from "@/components/Header";
 
 function Quotes() {
+  const { settoken } = useContext(Authcontext);
+  const navigate = useNavigate();
 
-const { settoken } = useContext(Authcontext);
- const navigate = useNavigate();
-const logout=()=>{
 
-   localStorage.removeItem("token");
-   settoken("");
-   navigate("/Login");
 
-}
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login", { replace: true }); // 🔁 Redirect even if browser tries to go back
+    }
+  }, []);
+
+  // const logout = () => {
+  //   localStorage.removeItem("token"); // Remove token from localStorage
+  //   settoken("");                     // Clear token from context
+  //   toast.success("Logged out successfully!"); // Show toast
+  //   navigate("/Login", { replace: true });              // Redirect to login
+  // };
 
   return (
-    <div>
-        <nav className="  py-2 " >
-            <div className="flex justify-end items-center mr-3 ">
-           <Button onClick={logout} className="bg-black text-white cursor-pointer  " variant="outline">Log out</Button>
-           </div>
-        </nav>
+    <div className="border  ">
+      {/* <Button onClick={logout} className="bg-black text-white cursor-pointer" variant="outline">
+          Log out
+        </Button> */}
+        ceoceoceoc
     </div>
-  )
+  );
 }
 
-export default Quotes
+export default Quotes;
